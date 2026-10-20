@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UJIYAR — Premium Men's Silk Clothing & Modern Menswear</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#FBF9F5',
+                            card: '#F5F2EB',
+                            dark: '#1A1A1A',
+                            text: '#2C2C2C',
+                            muted: '#666666',
+                            gold: '#C5A059',
+                            goldHover: '#B38E46',
+                            burgundy: '#3A1E24',
+                            border: '#E5DFD3'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+                        sans: ['"Montserrat"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styles & Overrides */
+        body {
+            background-color: #FBF9F5;
+            color: #2C2C2C;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .font-serif-title {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F1ECE1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C5A059;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #B38E46;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        /* Image Zoom Effect */
+        .zoom-img-container {
+            overflow: hidden;
+        }
+        .zoom-img-container img {
+            transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .zoom-img-container:hover img {
+            transform: scale(1.06);
+        }
+
+        /* Overlay Glass Effect */
+        .glass-panel {
+            background: rgba(251, 249, 245, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* Luxury Button Hover Effect */
+        .btn-gold {
+            background-color: #C5A059;
+            color: #FFFFFF;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .btn-gold::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #1A1A1A;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+        .btn-gold:hover::before {
+            left: 0;
+        }
+
+        .btn-outline-dark {
+            border: 1px solid #1A1A1A;
+            color: #1A1A1A;
+            transition: all 0.3s ease;
+        }
+        .btn-outline-dark:hover {
+            background-color: #1A1A1A;
+            color: #FFFFFF;
+        }
+
+        /* Drawer Overlay Translucent Background */
+        .drawer-backdrop {
+            background-color: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(4px);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-gold selection:text-white">
+
+    <!-- ANNOUNCEMENT BAR -->
+    <div id="announcement-bar" class="bg-brand-dark text-brand-bg text-xs tracking-widest uppercase py-2.5 px-4 text-center transition-all duration-300 relative z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <span class="hidden md:inline-block text-brand-gold"><i class="fa-solid fa-gem mr-2"></i>ROYAL SILK HERITAGE</span>
+            <p id="announcement-text" class="font-medium mx-auto md:mx-0 transition-opacity duration-500 opacity-100">
+                Discover The New Silk Collection — Free Express Shipping Across India
+            </p>
+            <span class="hidden md:inline-block text-xs text-stone-400">Complimentary Gift Packaging</span>
+        </div>
+    </div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header id="main-header" class="sticky top-0 z-40 bg-brand-bg/95 backdrop-blur-md transition-all duration-300 border-b border-brand-border/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Mobile Hamburger Button -->
+                <button id="mobile-menu-btn" aria-label="Open Navigation Menu" class="lg:hidden text-brand-dark p-2 focus:outline-none hover:text-brand-gold transition-colors">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+
+                <!-- Brand Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="flex flex-col items-center group">
+                        <span class="font-serif-title text-3xl sm:text-4xl tracking-widest font-bold text-brand-dark group-hover:text-brand-gold transition-colors">UJIYAR</span>
+                        <span class="text-[9px] tracking-[0.3em] font-light text-brand-muted uppercase -mt-1 group-hover:text-brand-dark transition-colors" style="margin-top: 1px;">Haute Couture</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex space-x-7 items-center text-xs font-semibold tracking-wider uppercase text-brand-text">
+                    <a href="#home" class="hover:text-brand-gold transition-colors py-2 border-b-2 border-transparent hover:border-brand-gold">Home</a>
+                    <a href="#new-arrivals" class="hover:text-brand-gold transition-colors py-2 border-b-2 border-transparent hover:border-brand-gold">New Arrivals</a>
+                    <a href="#trending" onclick="filterProducts('Silk Shirts')" class="hover:text-brand-gold transition-colors py-2 border-b-2 border-transparent hover:border-brand-gold">Silk Shirts</a>
+                    <a href="#trending" onclick="filterProducts('Kurtas')" class="hover:text-brand-gold transition-colors py-2 border-b-2 border-transparent hover:border-brand-gold">Kurtas</a>
+                    <a href="#categories" class="hover:text-brand-gold transition-colors py-2 border-b-2 border-transparent hover:border-brand-gold">Ethnic Wear</a>
+                    <a href="#trending" onclick="filterProducts('Wedding Wear')" class="hover:text-brand-gold transition-colors py-2 border-b-2 border-transparent hover:border-brand-gold">Wedding</a>
+                    <a href="#trending" class="text-brand-burgundy font-bold hover:text-brand-gold transition-colors py-2">Sale</a>
+                </nav>
+
+                <!-- Header Actions (Search, Wishlist, Cart) -->
+                <div class="flex items-center space-x-5 text-brand-dark">
+                    <!-- Search Trigger -->
+                    <button id="open-search-btn" aria-label="Open Search" class="hover:text-brand-gold transition-colors p-2 focus:outline-none">
+                        <i class="fa-solid fa-magnifying-glass text-lg"></i>
+                    </button>
+
+                    <!-- Wishlist Trigger -->
+                    <button id="open-wishlist-btn" aria-label="Open Wishlist" class="hover:text-brand-gold transition-colors p-2 focus:outline-none relative">
+                        <i class="fa-regular fa-heart text-lg"></i>
+                        <span id="wishlist-badge" class="absolute top-0 right-0 bg-brand-gold text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center opacity-0 transition-opacity">0</span>
+                    </button>
+
+                    <!-- Cart Trigger -->
+                    <button id="open-cart-btn" aria-label="Open Shopping Bag" class="hover:text-brand-gold transition-colors p-2 focus:outline-none relative">
+                        <i class="fa-solid fa-bag-shopping text-lg"></i>
+                        <span id="cart-badge" class="absolute top-0 right-0 bg-brand-dark text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center opacity-0 transition-opacity">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div style="height: 100dvh;" id="mobile-menu" class="fixed inset-0 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out lg:hidden">
+            <div class="drawer-backdrop absolute inset-0" id="close-mobile-backdrop"></div>
+            <div style="width: 100%;" class="relative w-4/5 max-w-sm bg-brand-bg h-full shadow-2xl flex flex-col justify-between p-6 overflow-y-auto">
+                <div>
+                    <div class="flex justify-between items-center mb-8 border-b border-brand-border pb-4">
+                        <div>
+                            <span class="font-serif-title text-2xl font-bold tracking-widest text-brand-dark">UJIYAR</span>
+                            <p class="text-[9px] uppercase tracking-widest text-brand-gold">Gentleman's Silk Archive</p>
+                        </div>
+                        <button id="close-mobile-btn" aria-label="Close Navigation" class="text-brand-dark hover:text-brand-gold text-2xl">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                    <nav class="flex flex-col space-y-4 text-sm font-semibold tracking-wider uppercase text-brand-dark">
+                        <a href="#home" class="mobile-nav-link hover:text-brand-gold py-1">Home</a>
+                        <a href="#new-arrivals" class="mobile-nav-link hover:text-brand-gold py-1">New Arrivals</a>
+                        <a href="#trending" onclick="filterProducts('Silk Shirts'); closeMobileMenu();" class="mobile-nav-link hover:text-brand-gold py-1">Silk Shirts</a>
+                        <a href="#trending" onclick="filterProducts('Kurtas'); closeMobileMenu();" class="mobile-nav-link hover:text-brand-gold py-1">Silk Kurtas</a>
+                        <a href="#categories" class="mobile-nav-link hover:text-brand-gold py-1">Ethnic Wear</a>
+                        <a href="#trending" onclick="filterProducts('Wedding Wear'); closeMobileMenu();" class="mobile-nav-link hover:text-brand-gold py-1">Wedding Collection</a>
+                        <a href="#story" class="mobile-nav-link hover:text-brand-gold py-1">Brand Heritage</a>
+                    </nav>
+                </div>
+                <div class="pt-6 border-t border-brand-border text-xs text-stone-500 space-y-3">
+                    <p class="flex items-center"><i class="fa-solid fa-phone mr-2 text-brand-gold"></i> <span class="store-phone-display">+91 9569513683</span></p>
+                    <p class="flex items-center"><i class="fa-solid fa-envelope mr-2 text-brand-gold"></i> <span class="store-email-display">ujiyar@gmail.com</span></p>
+                    <p class="text-[10px] text-stone-400">© 2026 UJIYAR. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main id="home">
+
+        <!-- HERO SECTION -->
+        <section class="relative bg-brand-card overflow-hidden min-h-[85vh] flex items-center">
+            <!-- Background Image with Overlay -->
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=2000&q=80" 
+                     alt="UJIYAR Luxury Men's Silk Collection" 
+                     class="w-full h-full object-cover object-top filter brightness-[0.88] contrast-[1.05]"
+                     onerror="this.src='https://placehold.co/1920x1080/2C2C2C/C5A059?text=UJIYAR+Luxury+Silk'">
+                <div class="absolute inset-0 bg-gradient-to-r from-brand-dark/80 via-brand-dark/40 to-transparent"></div>
+            </div>
+
+            <!-- Hero Text Content -->
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
+                <div class="max-w-xl text-white">
+                    <span class="text-xs sm:text-sm uppercase tracking-[0.35em] text-brand-gold font-semibold mb-4 block animate-fade-in">
+                        The Art of Elegant Menswear
+                    </span>
+                    <h1 class="font-serif-title text-4xl sm:text-6xl lg:text-7xl font-bold leading-tight mb-6 tracking-tight">
+                        ELEVATE YOUR EVERYDAY.
+                    </h1>
+                    <p class="text-sm sm:text-base text-stone-200 font-light mb-8 leading-relaxed max-w-lg">
+                        Discover refined mulberry silk shirts, hand-woven kurtas, and handcrafted festive silhouettes designed exclusively for the modern gentleman.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 sm:items-center">
+                        <a href="#new-arrivals" class="btn-gold text-center px-8 py-4 text-xs tracking-widest uppercase font-semibold rounded-none shadow-lg">
+                            Shop New Arrivals
+                        </a>
+                        <a href="#categories" class="border border-white/80 hover:bg-white hover:text-brand-dark text-white text-center px-8 py-4 text-xs tracking-widest uppercase font-semibold transition-all">
+                            Explore Silk Collection
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll Down Indicator -->
+            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-white/70 text-center hidden md:block">
+                <a href="#categories" aria-label="Scroll Down" class="flex flex-col items-center hover:text-brand-gold transition-colors">
+                    <span class="text-[10px] tracking-widest uppercase mb-1">Scroll</span>
+                    <i class="fa-solid fa-chevron-down text-xs animate-bounce"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- CATEGORIES SECTION -->
+        <section id="categories" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-xs tracking-[0.3em] uppercase text-brand-gold font-semibold">Curation</span>
+                <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-brand-dark mt-1">Shop by Category</h2>
+                <div class="w-12 h-0.5 bg-brand-gold mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Category 1 -->
+                <div onclick="filterProducts('Silk Shirts'); scrollToSection('trending');" class="group cursor-pointer zoom-img-container relative bg-brand-card shadow-sm border border-brand-border/40">
+                    <div class="aspect-[3/4] relative">
+                        <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=80" alt="Silk Shirts" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    </div>
+                    <div class="absolute bottom-0 inset-x-0 p-6 text-white text-center">
+                        <h3 class="font-serif-title text-2xl font-bold mb-1">Silk Shirts</h3>
+                        <p class="text-xs text-stone-300 font-light tracking-widest uppercase group-hover:text-brand-gold transition-colors">Explore Collection &rarr;</p>
+                    </div>
+                </div>
+
+                <!-- Category 2 -->
+                <div onclick="filterProducts('Kurtas'); scrollToSection('trending');" class="group cursor-pointer zoom-img-container relative bg-brand-card shadow-sm border border-brand-border/40">
+                    <div class="aspect-[3/4] relative">
+                        <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80" alt="Silk Kurtas" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    </div>
+                    <div class="absolute bottom-0 inset-x-0 p-6 text-white text-center">
+                        <h3 class="font-serif-title text-2xl font-bold mb-1">Silk Kurtas</h3>
+                        <p class="text-xs text-stone-300 font-light tracking-widest uppercase group-hover:text-brand-gold transition-colors">Explore Collection &rarr;</p>
+                    </div>
+                </div>
+
+                <!-- Category 3 -->
+                <div onclick="filterProducts('Wedding Wear'); scrollToSection('trending');" class="group cursor-pointer zoom-img-container relative bg-brand-card shadow-sm border border-brand-border/40">
+                    <div class="aspect-[3/4] relative">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80" alt="Wedding Wear" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    </div>
+                    <div class="absolute bottom-0 inset-x-0 p-6 text-white text-center">
+                        <h3 class="font-serif-title text-2xl font-bold mb-1">Wedding Wear</h3>
+                        <p class="text-xs text-stone-300 font-light tracking-widest uppercase group-hover:text-brand-gold transition-colors">Explore Collection &rarr;</p>
+                    </div>
+                </div>
+
+                <!-- Category 4 -->
+                <div onclick="filterProducts('Festive Wear'); scrollToSection('trending');" class="group cursor-pointer zoom-img-container relative bg-brand-card shadow-sm border border-brand-border/40">
+                    <div class="aspect-[3/4] relative">
+                        <img src="https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?auto=format&fit=crop&w=800&q=80" alt="Festive Collection" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    </div>
+                    <div class="absolute bottom-0 inset-x-0 p-6 text-white text-center">
+                        <h3 class="font-serif-title text-2xl font-bold mb-1">Festive Collection</h3>
+                        <p class="text-xs text-stone-300 font-light tracking-widest uppercase group-hover:text-brand-gold transition-colors">Explore Collection &rarr;</p>
+                    </div>
+                </div>
+
+                <!-- Category 5 -->
+                <div onclick="filterProducts('All'); scrollToSection('trending');" class="group cursor-pointer zoom-img-container relative bg-brand-card shadow-sm border border-brand-border/40">
+                    <div class="aspect-[3/4] relative">
+                        <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=800&q=80" alt="Premium Ethnic Wear" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    </div>
+                    <div class="absolute bottom-0 inset-x-0 p-6 text-white text-center">
+                        <h3 class="font-serif-title text-2xl font-bold mb-1">Premium Ethnic Wear</h3>
+                        <p class="text-xs text-stone-300 font-light tracking-widest uppercase group-hover:text-brand-gold transition-colors">Explore Collection &rarr;</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW ARRIVALS -->
+        <section id="new-arrivals" class="py-20 bg-brand-card/50 border-y border-brand-border/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                    <div>
+                        <span class="text-xs tracking-[0.3em] uppercase text-brand-gold font-semibold">Fresh From Atelier</span>
+                        <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-brand-dark mt-1">New Arrivals</h2>
+                    </div>
+                    <a href="#trending" onclick="filterProducts('All')" class="text-xs tracking-widest uppercase font-semibold text-brand-dark hover:text-brand-gold transition-colors mt-4 md:mt-0 flex items-center gap-2">
+                        View All New Pieces <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Featured Horizontal Grid -->
+                <div id="new-arrivals-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Dynamic rendering target for new arrivals -->
+                </div>
+            </div>
+        </section>
+
+        <!-- TRENDING COLLECTION / PRODUCT GRID WITH TABS -->
+        <section id="trending" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-xs tracking-[0.3em] uppercase text-brand-gold font-semibold">Signature Gallery</span>
+                <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-brand-dark mt-1">Trending Collection</h2>
+                <div class="w-12 h-0.5 bg-brand-gold mx-auto mt-4"></div>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-12">
+                <button onclick="filterProducts('All')" class="tab-btn active px-5 py-2 text-xs uppercase tracking-widest font-semibold border border-brand-dark bg-brand-dark text-white transition-all">
+                    All Products
+                </button>
+                <button onclick="filterProducts('Silk Shirts')" class="tab-btn px-5 py-2 text-xs uppercase tracking-widest font-semibold border border-brand-border text-brand-dark hover:border-brand-dark transition-all">
+                    Silk Shirts
+                </button>
+                <button onclick="filterProducts('Kurtas')" class="tab-btn px-5 py-2 text-xs uppercase tracking-widest font-semibold border border-brand-border text-brand-dark hover:border-brand-dark transition-all">
+                    Kurtas
+                </button>
+                <button onclick="filterProducts('Wedding Wear')" class="tab-btn px-5 py-2 text-xs uppercase tracking-widest font-semibold border border-brand-border text-brand-dark hover:border-brand-dark transition-all">
+                    Wedding Wear
+                </button>
+                <button onclick="filterProducts('Festive Wear')" class="tab-btn px-5 py-2 text-xs uppercase tracking-widest font-semibold border border-brand-border text-brand-dark hover:border-brand-dark transition-all">
+                    Festive Wear
+                </button>
+            </div>
+
+            <!-- Products Grid Container -->
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- JavaScript will populate products here -->
+            </div>
+        </section>
+
+        <!-- BRAND STORY / PHILOSOPHY -->
+        <section id="story" class="py-24 bg-brand-dark text-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    <div>
+                        <span class="text-xs tracking-[0.35em] uppercase text-brand-gold font-semibold mb-3 block">Our Heritage & Craft</span>
+                        <h2 class="font-serif-title text-4xl sm:text-5xl font-bold leading-tight mb-6">
+                            CRAFTED FOR THE DISTINGUISHED.
+                        </h2>
+                        <div class="space-y-4 text-stone-300 font-light text-sm sm:text-base leading-relaxed">
+                            <p>
+                                At UJIYAR, silk is more than a fabric—it is an art form. Rooted in centuries of textile heritage and modern sartorial precision, every creation reflects meticulous craftsmanship and effortless luxury.
+                            </p>
+                            <p>
+                                From selecting pure mulberry silk to perfecting relaxed tailored fits, we design for men who appreciate subtle elegance, rich textures, and timeless style for every modern occasion.
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-6 mt-8 pt-8 border-t border-stone-800">
+                            <div>
+                                <span class="font-serif-title text-3xl text-brand-gold block font-bold">100%</span>
+                                <span class="text-xs uppercase tracking-widest text-stone-400">Pure Silk Fibers</span>
+                            </div>
+                            <div>
+                                <span class="font-serif-title text-3xl text-brand-gold block font-bold">Handcrafted</span>
+                                <span class="text-xs uppercase tracking-widest text-stone-400">Master Tailoring</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="aspect-[4/5] overflow-hidden rounded-none border border-brand-gold/30">
+                            <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=1000&q=80" 
+                                 alt="Silk Weaving Detail" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute -bottom-6 -left-6 bg-brand-card text-brand-dark p-6 border border-brand-border hidden sm:block max-w-xs shadow-2xl">
+                            <p class="font-serif-title italic text-lg text-brand-burgundy font-semibold">"Elegance is not about being noticed, it's about being remembered."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY CHOOSE UJIYAR -->
+        <section class="py-20 bg-brand-bg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-brand-card p-8 border border-brand-border/60 text-center hover:border-brand-gold transition-colors">
+                        <div class="w-14 h-14 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mx-auto mb-5 text-xl">
+                            <i class="fa-solid fa-feather"></i>
+                        </div>
+                        <h3 class="font-serif-title text-xl font-bold mb-2">Premium Fabric Selection</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed">Hand-selected high-grade mulberry silk ensuring supreme breathability, drape, and lustrous finish.</p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="bg-brand-card p-8 border border-brand-border/60 text-center hover:border-brand-gold transition-colors">
+                        <div class="w-14 h-14 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mx-auto mb-5 text-xl">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <h3 class="font-serif-title text-xl font-bold mb-2">Timeless Men's Style</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed">Classic Indian heritage silhouettes fused with contemporary cuts for modern celebrations.</p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="bg-brand-card p-8 border border-brand-border/60 text-center hover:border-brand-gold transition-colors">
+                        <div class="w-14 h-14 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mx-auto mb-5 text-xl">
+                            <i class="fa-solid fa-scissors"></i>
+                        </div>
+                        <h3 class="font-serif-title text-xl font-bold mb-2">Attention to Detail</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed">Hand-stitched seams, mother-of-pearl buttons, and tailored precision on every single garment.</p>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="bg-brand-card p-8 border border-brand-border/60 text-center hover:border-brand-gold transition-colors">
+                        <div class="w-14 h-14 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mx-auto mb-5 text-xl">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+                        <h3 class="font-serif-title text-xl font-bold mb-2">Dedicated Support</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed">Personalized sizing assistance, styling consultation, and express insured delivery nationwide.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROMOTIONAL BANNER -->
+        <section class="relative py-24 bg-cover bg-center overflow-hidden" style="background-image: url('https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=2000&q=80');">
+            <div class="absolute inset-0 bg-brand-dark/75"></div>
+            <div class="relative z-10 max-w-4xl mx-auto text-center px-4 text-white">
+                <span class="text-xs tracking-[0.4em] uppercase text-brand-gold font-semibold mb-3 block">Occasion Wear Archive</span>
+                <h2 class="font-serif-title text-3xl sm:text-5xl font-bold mb-6">MAKE EVERY OCCASION UNFORGETTABLE.</h2>
+                <p class="text-sm sm:text-base font-light text-stone-300 max-w-xl mx-auto mb-8 leading-relaxed">
+                    Explore our exclusive Wedding & Festive Collection—engineered to elevate your presence at grand celebrations and intimate ceremonies.
+                </p>
+                <a href="#trending" onclick="filterProducts('Wedding Wear')" class="inline-block btn-gold px-10 py-4 text-xs font-semibold tracking-widest uppercase shadow-2xl">
+                    Explore Wedding Collection
+                </a>
+            </div>
+        </section>
+
+        <!-- NEWSLETTER SECTION -->
+        <section class="py-20 bg-brand-card border-t border-brand-border/60">
+            <div class="max-w-3xl mx-auto px-4 text-center">
+                <span class="text-xs tracking-[0.3em] uppercase text-brand-gold font-semibold">Join The Private Circle</span>
+                <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-brand-dark mt-1 mb-3">Subscribe to UJIYAR Gazette</h2>
+                <p class="text-xs sm:text-sm text-brand-muted mb-8 max-w-md mx-auto">
+                    Receive VIP invitations to new silk drops, trunk shows, and bespoke styling guides directly in your inbox.
+                </p>
+
+                <form id="newsletter-form" onsubmit="handleNewsletterSubmit(event)" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                    <input type="email" id="newsletter-email" placeholder="Enter your email address" required 
+                           class="flex-1 px-4 py-3 text-xs bg-white border border-brand-border focus:outline-none focus:border-brand-gold text-brand-dark">
+                    <button type="submit" class="btn-gold px-6 py-3 text-xs font-semibold tracking-widest uppercase">
+                        Subscribe
+                    </button>
+                </form>
+                <p id="newsletter-feedback" class="text-xs mt-3 hidden"></p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark text-white pt-16 pb-12 border-t border-stone-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-stone-800 text-xs">
+                
+                <!-- Column 1: Brand Info -->
+                <div class="lg:col-span-1 space-y-4">
+                    <a href="#" class="inline-block">
+                        <span class="font-serif-title text-3xl font-bold tracking-widest text-white">UJIYAR</span>
+                        <p class="text-[9px] uppercase tracking-[0.25em] text-brand-gold" style="margin-top: 1px !important;"> Hellow world</p>
+                    </a>
+                    <p class="text-stone-400 font-light leading-relaxed">
+                        The Art of Elegant Menswear. Crafting luxury mulberry silk shirts, kurtas, and traditional ethnic wear for the modern gentleman.
+                    </p>
+                </div>
+
+                <!-- Column 2: Quick Shop -->
+                <div>
+                    <h3 class="font-serif-title text-lg font-bold text-white mb-4 tracking-wider uppercase">Shop</h3>
+                    <ul class="space-y-2.5 text-stone-400">
+                        <li><a href="#new-arrivals" class="hover:text-brand-gold transition-colors">New Arrivals</a></li>
+                        <li><a href="#trending" onclick="filterProducts('Silk Shirts')" class="hover:text-brand-gold transition-colors">Silk Shirts</a></li>
+                        <li><a href="#trending" onclick="filterProducts('Kurtas')" class="hover:text-brand-gold transition-colors">Silk Kurtas</a></li>
+                        <li><a href="#trending" onclick="filterProducts('Wedding Wear')" class="hover:text-brand-gold transition-colors">Wedding Collection</a></li>
+                        <li><a href="#trending" onclick="filterProducts('Festive Wear')" class="hover:text-brand-gold transition-colors">Festive Collection</a></li>
+                        <li><a href="#trending" onclick="filterProducts('All')" class="hover:text-brand-gold transition-colors">All Products</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Customer Support -->
+                <div>
+                    <h3 class="font-serif-title text-lg font-bold text-white mb-4 tracking-wider uppercase">Support</h3>
+                    <ul class="space-y-2.5 text-stone-400">
+                        <li><a href="javascript:void(0)" onclick="showToast('Concierge available 10 AM - 7 PM')" class="hover:text-brand-gold transition-colors">Contact Us</a></li>
+                        <li><a href="javascript:void(0)" onclick="showToast('Sizing guide: True to slim fit')" class="hover:text-brand-gold transition-colors">Size Guide & FAQ</a></li>
+                        <li><a href="javascript:void(0)" onclick="showToast('Free Express Domestic Shipping')" class="hover:text-brand-gold transition-colors">Shipping & Delivery</a></li>
+                        <li><a href="javascript:void(0)" onclick="showToast('7-day complimentary return policy')" class="hover:text-brand-gold transition-colors">Returns & Exchanges</a></li>
+                        <li><a href="javascript:void(0)" onclick="showToast('Privacy Policy: Terms confidential')" class="hover:text-brand-gold transition-colors">Privacy Policy</a></li>
+                        <li><a href="javascript:void(0)" onclick="showToast('Terms of Service applied')" class="hover:text-brand-gold transition-colors">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact Info -->
+                <div>
+                    <h3 class="font-serif-title text-lg font-bold text-white mb-4 tracking-wider uppercase">Atelier Details</h3>
+                    <ul class="space-y-3 text-stone-400">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-location-dot text-brand-gold mt-1 mr-2.5"></i>
+                            <span class="store-address-display"> Shop No. 1, Near Jayka Chay, Chikhali Road, Kudalwadi-Chikhali, Pune - 411062, Maharashtra.</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-solid fa-phone text-brand-gold mr-2.5"></i>
+                            <span class="store-phone-display">+91 9569513683</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-solid fa-envelope text-brand-gold mr-2.5"></i>
+                            <span class="store-email-display">ujiyar@gmail.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-solid fa-clock text-brand-gold mr-2.5"></i>
+                            <span class="store-hours-display">Mon - Sat: 10:30 AM - 8:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 5: Social Media -->
+                <div>
+                    <h3 class="font-serif-title text-lg font-bold text-white mb-4 tracking-wider uppercase">Connect</h3>
+                    <p class="text-stone-400 mb-4 font-light">Follow our journal for style inspirations and fabric insights.</p>
+                    <div id="social-links-container" class="flex space-x-3 text-stone-300">
+                        <!-- Injected dynamically from JS Config -->
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-stone-500 text-[11px]">
+                <p>© 2026 UJIYAR. All Rights Reserved. Modern Luxury Silk Menswear.</p>
+                <div class="flex space-x-4 mt-4 sm:mt-0">
+                    <span class="hover:text-brand-gold cursor-pointer"><i class="fa-brands fa-cc-visa text-base"></i></span>
+                    <span class="hover:text-brand-gold cursor-pointer"><i class="fa-brands fa-cc-mastercard text-base"></i></span>
+                    <span class="hover:text-brand-gold cursor-pointer"><i class="fa-brands fa-cc-apple-pay text-base"></i></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button id="back-to-top" aria-label="Back to Top" onclick="scrollToTop()" class="fixed bottom-6 right-6 bg-brand-gold text-white w-10 h-10 rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 z-30 hover:bg-brand-dark">
+        <i class="fa-solid fa-arrow-up text-sm"></i>
+    </button>
+
+    <!-- SEARCH MODAL -->
+    <div id="search-modal" class="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="drawer-backdrop absolute inset-0" onclick="closeSearchModal()"></div>
+        <div class="relative bg-brand-bg w-full max-w-2xl p-6 shadow-2xl border border-brand-border z-10 animate-fade-in">
+            <div class="flex items-center justify-between border-b border-brand-border pb-4 mb-4">
+                <div class="flex items-center flex-1 mr-4">
+                    <i class="fa-solid fa-magnifying-glass text-brand-gold mr-3"></i>
+                    <input type="text" id="search-input" placeholder="Search silk shirts, kurtas, wedding collection..." 
+                           oninput="handleSearchInput()" 
+                           class="w-full bg-transparent text-sm text-brand-dark focus:outline-none">
+                    <button id="clear-search-btn" onclick="clearSearch()" class="text-stone-400 hover:text-brand-dark hidden px-2">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <button onclick="closeSearchModal()" aria-label="Close Search" class="text-brand-dark hover:text-brand-gold text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div id="search-results-container" class="max-h-80 overflow-y-auto space-y-3">
+                <p class="text-xs text-stone-400 text-center py-6">Start typing to search the luxury collection...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SHOPPING CART DRAWER -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="drawer-backdrop absolute inset-0" onclick="closeCartDrawer()"></div>
+        <div class="relative w-full max-w-md bg-brand-bg h-full shadow-2xl ml-auto flex flex-col justify-between p-6">
+            <div>
+                <div class="flex justify-between items-center pb-4 border-b border-brand-border mb-4">
+                    <div class="flex items-center space-x-2">
+                        <i class="fa-solid fa-bag-shopping text-brand-gold"></i>
+                        <h3 class="font-serif-title text-xl font-bold text-brand-dark">Shopping Bag</h3>
+                        <span id="cart-drawer-count" class="text-xs bg-brand-card px-2 py-0.5 border border-brand-border text-brand-dark font-semibold">0</span>
+                    </div>
+                    <button onclick="closeCartDrawer()" aria-label="Close Bag" class="text-brand-dark hover:text-brand-gold text-xl">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <!-- Free Shipping Progress -->
+                <div id="shipping-progress-box" class="bg-brand-card p-3 border border-brand-border mb-4 text-xs">
+                    <p id="shipping-progress-text" class="text-brand-dark mb-1">Add <span class="font-bold">₹5,000</span> more for Free Express Shipping</p>
+                    <div class="w-full bg-stone-200 h-1.5 rounded-full overflow-hidden">
+                        <div id="shipping-bar" class="bg-brand-gold h-full w-0 transition-all duration-300"></div>
+                    </div>
+                </div>
+
+                <!-- Cart Items Container -->
+                <div id="cart-items-container" class="max-h-[50vh] overflow-y-auto space-y-4 pr-1">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+
+            <!-- Cart Footer Summary -->
+            <div class="border-t border-brand-border pt-4 space-y-3">
+                <div class="flex justify-between text-sm font-medium">
+                    <span class="text-brand-muted">Subtotal</span>
+                    <span id="cart-subtotal" class="font-serif-title font-bold text-base text-brand-dark">₹0</span>
+                </div>
+                <p class="text-[10px] text-stone-400">Taxes and shipping calculated at checkout.</p>
+                <button onclick="proceedToCheckout()" class="w-full btn-gold py-3 text-xs font-semibold tracking-widest uppercase text-center shadow-md">
+                    Proceed to Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- WISHLIST DRAWER -->
+    <div id="wishlist-drawer" class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="drawer-backdrop absolute inset-0" onclick="closeWishlistDrawer()"></div>
+        <div class="relative w-full max-w-md bg-brand-bg h-full shadow-2xl ml-auto flex flex-col justify-between p-6">
+            <div>
+                <div class="flex justify-between items-center pb-4 border-b border-brand-border mb-4">
+                    <div class="flex items-center space-x-2">
+                        <i class="fa-regular fa-heart text-brand-gold"></i>
+                        <h3 class="font-serif-title text-xl font-bold text-brand-dark">Saved Items</h3>
+                    </div>
+                    <button onclick="closeWishlistDrawer()" aria-label="Close Wishlist" class="text-brand-dark hover:text-brand-gold text-xl">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <!-- Wishlist Items Container -->
+                <div id="wishlist-items-container" class="max-h-[70vh] overflow-y-auto space-y-4 pr-1">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+
+            <div class="border-t border-brand-border pt-4">
+                <button onclick="closeWishlistDrawer(); scrollToSection('trending');" class="w-full btn-outline-dark py-3 text-xs font-semibold tracking-widest uppercase">
+                    Continue Browsing
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DEMO CHECKOUT MODAL -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="drawer-backdrop absolute inset-0" onclick="closeCheckoutModal()"></div>
+        <div class="relative bg-brand-bg w-full max-w-md p-6 shadow-2xl border border-brand-border z-10 text-center animate-fade-in">
+            <div class="w-12 h-12 bg-brand-gold/20 text-brand-gold rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3 class="font-serif-title text-2xl font-bold mb-2">Frontend Demo Order</h3>
+            <p class="text-xs text-brand-muted mb-6 leading-relaxed">
+                Thank you for experiencing the UJIYAR store prototype. Real checkout processing requires integration with backend payment gateways (e.g., Razorpay / Stripe).
+            </p>
+            <div class="bg-brand-card p-4 border border-brand-border mb-6 text-left text-xs space-y-2">
+                <div class="flex justify-between">
+                    <span class="text-stone-500">Items Total:</span>
+                    <span id="demo-checkout-total" class="font-bold">₹0</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-stone-500">Shipping:</span>
+                    <span class="text-emerald-700 font-semibold">Complimentary Express</span>
+                </div>
+            </div>
+            <button onclick="confirmDemoOrder()" class="w-full btn-gold py-3 text-xs font-semibold tracking-widest uppercase">
+                Simulate Place Order
+            </button>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toast-container" class="fixed bottom-6 left-6 z-50 flex flex-col space-y-2 pointer-events-none"></div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        /* ==========================================================================
+           1. STORE CONFIGURATION OBJECT (Editable Details)
+           ========================================================================== */
+        const UJIYAR_CONFIG = {
+            brandName: "UJIYAR",
+            tagline: "THE ART OF ELEGANT MENSWEAR",
+            phone: "+91 9569513683",
+            email: "ujiyar@gmail.com",
+            address: "Shop No. 1, Near Jayka Chay, Chikhali Road, Kudalwadi-Chikhali, Pune - 411062, Maharashtra.",
+            hours: "Mon - Sat: 10:30 AM - 8:00 PM",
+            whatsapp: "+919569513683", // International format without spaces
+            socialLinks: {
+                whatsapp: "https://wa.me/919569513683?text=Hello%20UJIYAR%20Concierge",
+                instagram: "https://instagram.com",
+                facebook: "https://facebook.com",
+                youtube: "https://youtube.com"
+            }
+        };
+
+        /* ==========================================================================
+           2. PRODUCT DATABASE
+           ========================================================================== */
+        const PRODUCTS = [
+            {
+                id: 1,
+                name: "Black Premium Silk Shirt",
+                category: "Silk Shirts",
+                price: 4999,
+                originalPrice: 6999,
+                badge: "Bestseller",
+                sizes: ["S", "M", "L", "XL", "XXL"],
+                image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=80",
+                isNewArrival: true
+            },
+            {
+                id: 2,
+                name: "Ivory Hand-Woven Silk Kurta",
+                category: "Kurtas",
+                price: 6499,
+                originalPrice: 7999,
+                badge: "New Arrival",
+                sizes: ["M", "L", "XL"],
+                image: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80",
+                isNewArrival: true
+            },
+            {
+                id: 3,
+                name: "Midnight Blue Silk Shirt",
+                category: "Silk Shirts",
+                price: 5299,
+                originalPrice: 6499,
+                badge: "Popular",
+                sizes: ["S", "M", "L", "XL"],
+                image: "https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?auto=format&fit=crop&w=800&q=80",
+                isNewArrival: false
+            },
+            {
+                id: 4,
+                name: "Champagne Wedding Kurta Set",
+                category: "Wedding Wear",
+                price: 8999,
+                originalPrice: 11999,
+                badge: "Royal Edition",
+                sizes: ["M", "L", "XL", "XXL"],
+                image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80",
+                isNewArrival: true
+            },
+            {
+                id: 5,
+                name: "Maroon Festive Silk Shirt",
+                category: "Festive Wear",
+                price: 4799,
+                originalPrice: 5999,
+                badge: "Festive",
+                sizes: ["S", "M", "L"],
+                image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=800&q=80",
+                isNewArrival: false
+            },
+            {
+                id: 6,
+                name: "Emerald Green Ethnic Kurta",
+                category: "Kurtas",
+                price: 7299,
+                originalPrice: 8999,
+                badge: "Hand-Draped",
+                sizes: ["M", "L", "XL"],
+                image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+                isNewArrival: true
+            },
+            {
+                id: 7,
+                name: "Premium Silk Blend Waistcoat",
+                category: "Wedding Wear",
+                price: 5899,
+                originalPrice: 7499,
+                badge: "Bestseller",
+                sizes: ["S", "M", "L", "XL"],
+                image: "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=80",
+                isNewArrival: false
+            },
+            {
+                id: 8,
+                name: "Classic Black Occasion Kurta",
+                category: "Festive Wear",
+                price: 9999,
+                originalPrice: 12999,
+                badge: "Limited",
+                sizes: ["M", "L", "XL", "XXL"],
+                image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80",
+                isNewArrival: false
+            }
+        ];
+
+        /* ==========================================================================
+           3. STATE MANAGEMENT (LocalStorage Synced)
+           ========================================================================== */
+        let cart = JSON.parse(localStorage.getItem('ujiyar_cart')) || [];
+        let wishlist = JSON.parse(localStorage.getItem('ujiyar_wishlist')) || [];
+        let activeCategory = 'All';
+        let selectedSizes = {};
+
+        /* ==========================================================================
+           4. INITIALIZATION ON DOM READY
+           ========================================================================== */
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeStoreConfig();
+            renderNewArrivals();
+            renderProductsGrid();
+            updateCartUI();
+            updateWishlistUI();
+            setupAnnouncementRotation();
+            setupScrollListener();
+        });
+
+        /* Inject Editable Config into UI */
+        function initializeStoreConfig() {
+            document.querySelectorAll('.store-phone-display').forEach(el => el.textContent = UJIYAR_CONFIG.phone);
+            document.querySelectorAll('.store-email-display').forEach(el => el.textContent = UJIYAR_CONFIG.email);
+            document.querySelectorAll('.store-address-display').forEach(el => el.textContent = UJIYAR_CONFIG.address);
+            document.querySelectorAll('.store-hours-display').forEach(el => el.textContent = UJIYAR_CONFIG.hours);
+
+            const socialContainer = document.getElementById('social-links-container');
+            if (socialContainer) {
+                socialContainer.innerHTML = `
+                    <a href="${UJIYAR_CONFIG.socialLinks.whatsapp}" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full border border-stone-700 flex items-center justify-center hover:border-brand-gold hover:text-brand-gold transition-colors" aria-label="WhatsApp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <a href="${UJIYAR_CONFIG.socialLinks.instagram}" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full border border-stone-700 flex items-center justify-center hover:border-brand-gold hover:text-brand-gold transition-colors" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="${UJIYAR_CONFIG.socialLinks.facebook}" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full border border-stone-700 flex items-center justify-center hover:border-brand-gold hover:text-brand-gold transition-colors" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="${UJIYAR_CONFIG.socialLinks.youtube}" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full border border-stone-700 flex items-center justify-center hover:border-brand-gold hover:text-brand-gold transition-colors" aria-label="YouTube">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                `;
+            }
+        }
+
+        /* Announcement Bar Banner Rotation */
+        function setupAnnouncementRotation() {
+            const announcements = [
+                "Discover The New Silk Collection — Free Express Shipping Across India",
+                "Complimentary Custom Tailoring Assistance On Wedding Orders",
+                "Experience Royal Mulberry Silk Heritage — Crafting Elegance Since 2026"
+            ];
+            let idx = 0;
+            const textEl = document.getElementById('announcement-text');
+            setInterval(() => {
+                if (textEl) {
+                    textEl.classList.add('opacity-0');
+                    setTimeout(() => {
+                        idx = (idx + 1) % announcements.length;
+                        textEl.textContent = announcements[idx];
+                        textEl.classList.remove('opacity-0');
+                    }, 500);
+                }
+            }, 6000);
+        }
+
+        /* Header Scroll Effect & Back-To-Top */
+        function setupScrollListener() {
+            const backToTopBtn = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn?.classList.remove('opacity-0', 'pointer-events-none');
+                } else {
+                    backToTopBtn?.classList.add('opacity-0', 'pointer-events-none');
+                }
+            });
+        }
+
+        /* ==========================================================================
+           5. RENDER FUNCTIONS
+           ========================================================================== */
+        function createProductCardHTML(product) {
+            const isWishlisted = wishlist.some(item => item.id === product.id);
+            const currentSize = selectedSizes[product.id] || product.sizes[0];
+
+            return `
+                <div class="bg-brand-card border border-brand-border/50 group flex flex-col justify-between transition-all duration-300 hover:shadow-xl">
+                    <div class="relative zoom-img-container aspect-[3/4]">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x800/2C2C2C/C5A059?text=UJIYAR+Silk'">
+                        ${product.badge ? `<span class="absolute top-3 left-3 bg-brand-dark text-brand-gold text-[9px] uppercase tracking-widest font-bold px-2.5 py-1">${product.badge}</span>` : ''}
+                        
+                        <button onclick="toggleWishlist(${product.id})" aria-label="Save to Wishlist" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 text-brand-dark flex items-center justify-center hover:bg-brand-gold hover:text-white transition-colors shadow-sm">
+                            <i class="${isWishlisted ? 'fa-solid text-red-600' : 'fa-regular'} fa-heart text-sm"></i>
+                        </button>
+                    </div>
+
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] text-brand-gold uppercase tracking-widest font-semibold block mb-1">${product.category}</span>
+                            <h3 class="font-serif-title text-lg font-bold text-brand-dark mb-2 line-clamp-1">${product.name}</h3>
+                            
+                            <!-- Price Display -->
+                            <div class="flex items-center space-x-2 mb-3">
+                                <span class="font-serif-title text-base font-bold text-brand-dark">₹${product.price.toLocaleString('en-IN')}</span>
+                                ${product.originalPrice ? `<span class="text-xs text-stone-400 line-through">₹${product.originalPrice.toLocaleString('en-IN')}</span>` : ''}
+                            </div>
+
+                            <!-- Size Selector -->
+                            <div class="mb-4">
+                                <span class="text-[9px] uppercase tracking-widest text-stone-400 font-semibold block mb-1.5">Select Size</span>
+                                <div class="flex flex-wrap gap-1">
+                                    ${product.sizes.map(size => `
+                                        <button onclick="selectSize(${product.id}, '${size}')" 
+                                                class="text-[10px] w-7 h-7 border transition-all ${currentSize === size ? 'border-brand-dark bg-brand-dark text-white' : 'border-brand-border text-brand-dark hover:border-brand-dark'}">
+                                            ${size}
+                                        </button>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="addToCart(${product.id})" class="w-full btn-gold py-2.5 text-xs tracking-widest uppercase font-semibold flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-bag-shopping"></i> Add to Bag
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderNewArrivals() {
+            const container = document.getElementById('new-arrivals-container');
+            if (!container) return;
+            const newArrivals = PRODUCTS.filter(p => p.isNewArrival);
+            container.innerHTML = newArrivals.map(p => createProductCardHTML(p)).join('');
+        }
+
+        function renderProductsGrid() {
+            const container = document.getElementById('products-grid');
+            if (!container) return;
+
+            const filtered = activeCategory === 'All' 
+                ? PRODUCTS 
+                : PRODUCTS.filter(p => p.category === activeCategory);
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-12">
+                        <p class="font-serif-title text-xl text-stone-500">No silk garments found in this category.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = filtered.map(p => createProductCardHTML(p)).join('');
+        }
+
+        function filterProducts(category) {
+            activeCategory = category;
+            
+            // Update Tab Active Styling
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                const btnText = btn.textContent.trim();
+                if ((category === 'All' && btnText === 'All Products') || btnText === category) {
+                    btn.className = 'tab-btn active px-5 py-2 text-xs uppercase tracking-widest font-semibold border border-brand-dark bg-brand-dark text-white transition-all';
+                } else {
+                    btn.className = 'tab-btn px-5 py-2 text-xs uppercase tracking-widest font-semibold border border-brand-border text-brand-dark hover:border-brand-dark transition-all';
+                }
+            });
+
+            renderProductsGrid();
+        }
+
+        function selectSize(productId, size) {
+            selectedSizes[productId] = size;
+            renderProductsGrid();
+            renderNewArrivals();
+        }
+
+        /* ==========================================================================
+           6. CART FUNCTIONALITY
+           ========================================================================== */
+        function addToCart(productId) {
+            const product = PRODUCTS.find(p => p.id === productId);
+            if (!product) return;
+
+            const size = selectedSizes[productId] || product.sizes[0];
+            const existingIndex = cart.findIndex(item => item.id === productId && item.selectedSize === size);
+
+            if (existingIndex > -1) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push({
+                    ...product,
+                    selectedSize: size,
+                    quantity: 1
+                });
+            }
+
+            saveCart();
+            updateCartUI();
+            openCartDrawer();
+            showToast(`Added ${product.name} (${size}) to Bag.`);
+        }
+
+        function updateCartQuantity(index, delta) {
+            if (cart[index]) {
+                cart[index].quantity += delta;
+                if (cart[index].quantity <= 0) {
+                    cart.splice(index, 1);
+                }
+                saveCart();
+                updateCartUI();
+            }
+        }
+
+        function removeFromCart(index) {
+            if (cart[index]) {
+                const name = cart[index].name;
+                cart.splice(index, 1);
+                saveCart();
+                updateCartUI();
+                showToast(`Removed ${name} from Bag.`);
+            }
+        }
+
+        function saveCart() {
+            localStorage.setItem('ujiyar_cart', JSON.stringify(cart));
+        }
+
+        function updateCartUI() {
+            const badge = document.getElementById('cart-badge');
+            const drawerCount = document.getElementById('cart-drawer-count');
+            const container = document.getElementById('cart-items-container');
+            const subtotalEl = document.getElementById('cart-subtotal');
+            const shippingBar = document.getElementById('shipping-bar');
+            const shippingText = document.getElementById('shipping-progress-text');
+
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+            // Update Badge Counts
+            if (badge) {
+                badge.textContent = totalItems;
+                badge.style.opacity = totalItems > 0 ? '1' : '0';
+            }
+            if (drawerCount) drawerCount.textContent = totalItems;
+
+            // Free Shipping Calculator Target = ₹5000
+            const freeShippingTarget = 5000;
+            if (shippingBar && shippingText) {
+                const percentage = Math.min(100, (subtotal / freeShippingTarget) * 100);
+                shippingBar.style.width = `${percentage}%`;
+                if (subtotal >= freeShippingTarget) {
+                    shippingText.innerHTML = `<span class="text-emerald-700 font-bold"><i class="fa-solid fa-circle-check mr-1"></i> You unlocked Complimentary Express Shipping!</span>`;
+                } else {
+                    const remaining = freeShippingTarget - subtotal;
+                    shippingText.innerHTML = `Add <span class="font-bold">₹${remaining.toLocaleString('en-IN')}</span> more for Free Express Shipping`;
+                }
+            }
+
+            // Subtotal
+            if (subtotalEl) subtotalEl.textContent = `₹${subtotal.toLocaleString('en-IN')}`;
+
+            // Render Cart Items
+            if (!container) return;
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12">
+                        <i class="fa-solid fa-bag-shopping text-3xl text-stone-300 mb-3"></i>
+                        <p class="font-serif-title text-lg text-brand-dark font-medium">Your Shopping Bag is empty</p>
+                        <p class="text-xs text-stone-400 mt-1 mb-4">Discover our hand-woven silk archive.</p>
+                        <button onclick="closeCartDrawer(); scrollToSection('trending');" class="btn-gold px-6 py-2.5 text-xs font-semibold tracking-widest uppercase">
+                            Shop Collections
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = cart.map((item, idx) => `
+                <div class="flex space-x-3 bg-brand-card p-3 border border-brand-border/60">
+                    <img src="${item.image}" alt="${item.name}" class="w-16 h-20 object-cover">
+                    <div class="flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start">
+                                <h4 class="font-serif-title text-sm font-bold text-brand-dark line-clamp-1">${item.name}</h4>
+                                <button onclick="removeFromCart(${idx})" class="text-stone-400 hover:text-red-600 text-xs">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </button>
+                            </div>
+                            <p class="text-[10px] text-stone-500 uppercase tracking-widest mt-0.5">Size: ${item.selectedSize}</p>
+                            <p class="font-serif-title text-xs font-bold text-brand-dark mt-1">₹${item.price.toLocaleString('en-IN')}</p>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <button onclick="updateCartQuantity(${idx}, -1)" class="w-5 h-5 border border-brand-border text-xs flex items-center justify-center hover:bg-brand-dark hover:text-white">-</button>
+                            <span class="text-xs font-semibold w-4 text-center">${item.quantity}</span>
+                            <button onclick="updateCartQuantity(${idx}, 1)" class="w-5 h-5 border border-brand-border text-xs flex items-center justify-center hover:bg-brand-dark hover:text-white">+</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        /* ==========================================================================
+           7. WISHLIST FUNCTIONALITY
+           ========================================================================== */
+        function toggleWishlist(productId) {
+            const index = wishlist.findIndex(item => item.id === productId);
+            const product = PRODUCTS.find(p => p.id === productId);
+
+            if (index > -1) {
+                wishlist.splice(index, 1);
+                showToast(`Removed ${product.name} from Wishlist.`);
+            } else {
+                wishlist.push(product);
+                showToast(`Saved ${product.name} to Wishlist.`);
+            }
+
+            saveWishlist();
+            updateWishlistUI();
+            renderProductsGrid();
+            renderNewArrivals();
+        }
+
+        function saveWishlist() {
+            localStorage.setItem('ujiyar_wishlist', JSON.stringify(wishlist));
+        }
+
+        function updateWishlistUI() {
+            const badge = document.getElementById('wishlist-badge');
+            const container = document.getElementById('wishlist-items-container');
+
+            if (badge) {
+                badge.textContent = wishlist.length;
+                badge.style.opacity = wishlist.length > 0 ? '1' : '0';
+            }
+
+            if (!container) return;
+
+            if (wishlist.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12">
+                        <i class="fa-regular fa-heart text-3xl text-stone-300 mb-3"></i>
+                        <p class="font-serif-title text-lg text-brand-dark font-medium">Your Wishlist is empty</p>
+                        <p class="text-xs text-stone-400 mt-1">Save your favorite silk creations for later.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = wishlist.map((item) => `
+                <div class="flex space-x-3 bg-brand-card p-3 border border-brand-border/60 items-center justify-between">
+                    <div class="flex space-x-3 items-center">
+                        <img src="${item.image}" alt="${item.name}" class="w-14 h-18 object-cover">
+                        <div>
+                            <h4 class="font-serif-title text-sm font-bold text-brand-dark line-clamp-1">${item.name}</h4>
+                            <p class="font-serif-title text-xs font-bold text-brand-dark">₹${item.price.toLocaleString('en-IN')}</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col space-y-2">
+                        <button onclick="addToCart(${item.id}); toggleWishlist(${item.id});" class="btn-gold text-[10px] px-3 py-1.5 font-semibold uppercase tracking-widest">
+                            Move to Bag
+                        </button>
+                        <button onclick="toggleWishlist(${item.id})" class="text-[10px] text-stone-400 hover:text-red-600 text-center uppercase tracking-widest">
+                            Remove
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        /* ==========================================================================
+           8. SEARCH MODAL FUNCTIONALITY
+           ========================================================================== */
+        function handleSearchInput() {
+            const query = document.getElementById('search-input').value.toLowerCase().trim();
+            const container = document.getElementById('search-results-container');
+            const clearBtn = document.getElementById('clear-search-btn');
+
+            if (clearBtn) clearBtn.style.display = query.length > 0 ? 'block' : 'none';
+
+            if (!query) {
+                container.innerHTML = `<p class="text-xs text-stone-400 text-center py-6">Start typing to search the luxury collection...</p>`;
+                return;
+            }
+
+            const results = PRODUCTS.filter(p => 
+                p.name.toLowerCase().includes(query) || 
+                p.category.toLowerCase().includes(query)
+            );
+
+            if (results.length === 0) {
+                container.innerHTML = `<p class="text-xs text-stone-500 text-center py-6">No matching silk items found for "${query}".</p>`;
+                return;
+            }
+
+            container.innerHTML = results.map(item => `
+                <div onclick="closeSearchModal(); scrollToSection('trending');" class="flex items-center space-x-4 p-2 hover:bg-brand-card cursor-pointer border-b border-brand-border/40">
+                    <img src="${item.image}" alt="${item.name}" class="w-12 h-14 object-cover">
+                    <div>
+                        <span class="text-[9px] uppercase tracking-widest text-brand-gold font-bold">${item.category}</span>
+                        <h4 class="font-serif-title text-sm font-bold text-brand-dark">${item.name}</h4>
+                        <span class="text-xs font-semibold text-brand-dark">₹${item.price.toLocaleString('en-IN')}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function clearSearch() {
+            const input = document.getElementById('search-input');
+            if (input) input.value = '';
+            handleSearchInput();
+        }
+
+        /* ==========================================================================
+           9. MODAL & DRAWER CONTROLS
+           ========================================================================== */
+        // Mobile Drawer
+        const mobileMenu = document.getElementById('mobile-menu');
+        document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
+            mobileMenu?.classList.remove('-translate-x-full');
+        });
+        document.getElementById('close-mobile-btn')?.addEventListener('click', closeMobileMenu);
+        document.getElementById('close-mobile-backdrop')?.addEventListener('click', closeMobileMenu);
+        function closeMobileMenu() {
+            mobileMenu?.classList.add('-translate-x-full');
+        }
+
+        // Cart Drawer
+        const cartDrawer = document.getElementById('cart-drawer');
+        document.getElementById('open-cart-btn')?.addEventListener('click', openCartDrawer);
+        function openCartDrawer() {
+            cartDrawer?.classList.remove('translate-x-full');
+        }
+        function closeCartDrawer() {
+            cartDrawer?.classList.add('translate-x-full');
+        }
+
+        // Wishlist Drawer
+        const wishlistDrawer = document.getElementById('wishlist-drawer');
+        document.getElementById('open-wishlist-btn')?.addEventListener('click', openWishlistDrawer);
+        function openWishlistDrawer() {
+            wishlistDrawer?.classList.remove('translate-x-full');
+        }
+        function closeWishlistDrawer() {
+            wishlistDrawer?.classList.add('translate-x-full');
+        }
+
+        // Search Modal
+        const searchModal = document.getElementById('search-modal');
+        document.getElementById('open-search-btn')?.addEventListener('click', () => {
+            searchModal?.classList.remove('opacity-0', 'pointer-events-none');
+            document.getElementById('search-input')?.focus();
+        });
+        function closeSearchModal() {
+            searchModal?.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        // Checkout Modal
+        function proceedToCheckout() {
+            if (cart.length === 0) {
+                showToast("Your bag is empty.");
+                return;
+            }
+            closeCartDrawer();
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            document.getElementById('demo-checkout-total').textContent = `₹${subtotal.toLocaleString('en-IN')}`;
+            document.getElementById('checkout-modal')?.classList.remove('opacity-0', 'pointer-events-none');
+        }
+        function closeCheckoutModal() {
+            document.getElementById('checkout-modal')?.classList.add('opacity-0', 'pointer-events-none');
+        }
+        function confirmDemoOrder() {
+            closeCheckoutModal();
+            cart = [];
+            saveCart();
+            updateCartUI();
+            showToast("Demo Order Placed! Thank you for choosing UJIYAR.");
+        }
+
+        /* ==========================================================================
+           10. NEWSLETTER & UTILITIES
+           ========================================================================== */
+        function handleNewsletterSubmit(e) {
+            e.preventDefault();
+            const emailInput = document.getElementById('newsletter-email');
+            const feedback = document.getElementById('newsletter-feedback');
+            
+            if (emailInput && feedback) {
+                feedback.textContent = "Thank you for joining the UJIYAR Private Circle. Welcome to our journal.";
+                feedback.className = "text-xs mt-3 text-emerald-800 font-medium block";
+                emailInput.value = '';
+                showToast("Subscribed to UJIYAR Gazette.");
+            }
+        }
+
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            if (!container) return;
+
+            const toast = document.createElement('div');
+            toast.className = 'bg-brand-dark text-white text-xs px-4 py-3 border-l-2 border-brand-gold shadow-2xl animate-fade-in pointer-events-auto flex items-center justify-between gap-4 max-w-sm';
+            toast.innerHTML = `
+                <span>${message}</span>
+                <i class="fa-solid fa-check text-brand-gold"></i>
+            `;
+
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transition = 'opacity 0.4s ease';
+                setTimeout(() => toast.remove(), 400);
+            }, 3000);
+        }
+
+        function scrollToSection(id) {
+            const section = document.getElementById(id);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
